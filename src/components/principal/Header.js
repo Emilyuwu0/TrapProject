@@ -1,19 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import "../../styles/header.css"
-export default function Header() {
+import {AppContext} from "../../context/AppContext";
+import '../../styles/header.css'
+
+const Header = () => {
+  const { state } = useContext(AppContext);
+  const { cart } = state;
+
   return (
-    <div>
-        <div className="Header">
+    <div className="Header">
       <h1 className="Header-title">
-        <Link to="/">PlatziConf Merch</Link>
+        <Link to="/">PrimoyMily</Link>
       </h1>
       <div className="Header-checkout">
         <Link to="/checkout">
-          <i className="fas fa-shopping-basket" />
+      aaa
         </Link>
+        {cart.length > 0 && <div className="Header-alert">{cart.length}</div>}
       </div>
     </div>
-    </div>
-  )
+  );
 }
+
+export default Header;

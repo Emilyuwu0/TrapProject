@@ -7,10 +7,12 @@ import Payment from '../Pages/Payment'
 import Success from '../Pages/Success'
 import NotFound from '../Pages/NotFound'
 import Layout from "../components/Layout"
+import AppProvider from "../context/AppContext";
+import initialState from "../initialState";
 export default function App() {
   return (
     <div>
-     
+     <AppProvider value={initialState}>
       <BrowserRouter>
       <Layout>
 <Routes>
@@ -22,7 +24,7 @@ export default function App() {
 <Route path='*' element={<NotFound />} />
 </Routes>
 </Layout>
-      </BrowserRouter>
+      </BrowserRouter></AppProvider>
     </div>
   );
 }
